@@ -1,0 +1,36 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+  <div id="lg-form-container">
+  <h2>{{ page_heading_2 }}</h2>
+  <p>{{ page_text }}</p>
+    {% if language is not empty and flag is not empty and currency is not empty %}
+    <p>Country selected was <b>{{ country_name }}</b></p>
+    <p>Capital City <b>{{ capital_city }}</b></p>
+    <p>Main language is <b>{{ language }}</b></p>
+    <p>Currency is <b>{{ currency }}</b></p>
+    <p>Country's flag: <img src="{{ flag }}" alt="country flag" title="country flag"></p>
+    <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+    {% endif %}
+
+    {% if language is empty and flag is empty and currency is empty %}
+    <p>Capital City is: <b>{{ capital_city }}</b></p>
+    <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+    {% endif %}
+
+    {% if language is empty and flag is empty and currency is not empty %}
+      <p>Country selected was <b>{{ country_name }}</b></p>
+      <p>Currency <b>{{ currency }}</b></p>
+      <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+    {% endif %}
+
+    {% if language is empty and flag is not empty %}
+    <p>Country selected was <b>{{ country_name }}</b></p>
+    <p>Capital City <b>{{ capital_city }}</b></p>
+    <p>Currency is <b>{{ currency }}</b></p>
+    <p>Language is <b>Not registered in the system</b></p>
+    <p>Country's flag: <img src="{{ flag }}" alt="country flag" title="country flag"></p>
+    <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+    {% endif %}
+
+  </div>
+{% endblock %}
